@@ -30,3 +30,46 @@ var questions = [
         answer: "<script>"
     },
 ];
+
+var questionIndex = 0;
+var createUl = document.createElement("ul");
+createUl.setAttribute("id", "options");
+
+var timeInterval = 0;
+var secondsLeft = 75;
+var wrongAns = 10;
+
+startButton.addEventListener("click", function () {
+    if (timeInterval === 0) {
+        timeInterval = setInterval(function () {
+            secondsLeft--;
+            timer.textContent = "Timer: " + secondsLeft;
+            if (secondsLeft <= 0) {
+                clearInterval(timeInterval);
+                quizEnd();
+            }
+        }, 1000);
+        newQuestion(questionIndex);
+        
+    }});
+
+    function newQuestion(questionIndex) {
+        quizContent.innerHTML = "";
+        createUl.innerHTML = "";
+        var currentQuestion = document.createElement("h2");
+        for (var i = 0; i < questions.length; i++) {
+            currentQuestion.innerHTML = questions[questionIndex].title;
+            var displayAnswers = questions[questionIndex].choices;
+            quizContent.appendChild(currentQuestion);
+        }
+        console.log(displayAnswers);
+        displayAnswers.forEach(function (newItem) {
+            var listItem = document.createElement("li");
+            listItem.innerHTML += "<button>" + newItem + "</button>";
+            quizContent.appendChild(createUl);
+            createUl.appendChild(listItem);
+            listItem.addEventListener("click", (checkAnswer));
+        })
+    }
+
+    
