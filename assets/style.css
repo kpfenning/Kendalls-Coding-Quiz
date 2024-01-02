@@ -1,10 +1,44 @@
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    background-color: #64B5F6;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+nav {
+    margin: 20px;
+    width: fit-content;
+    border: 3px;
+    border-color: #3b88c8;
+}
+
+nav a {
+    text-decoration: wavy;
+    color: black;
+    padding: 10px;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+    color: black;
+    font-size: 50px;
+}
+
 #timer{}
 
-nav{}
 
 #quizcontent{}
 
-title{}
+
 
 #options{}
 
