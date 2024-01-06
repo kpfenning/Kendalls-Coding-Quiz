@@ -12,3 +12,14 @@ clearBtn.addEventListener("click", function () {
     location.reload();
 });
 
+var storeScores = localStorage.getItem("storeScores");
+storeScores = JSON.parse(storeScores);
+
+if (storeScores!== null) {
+    for (var i = 0; i < storeScores.length; i++) {
+        var newLi = document.createElement("li");
+        newLi.setAttribute("id", "score");
+        newLi.textContent = storeScores[i].initials + " - " + storeScores[i].score;
+        highScores.appendChild(newLi);
+    }
+}
